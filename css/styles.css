@@ -9,7 +9,10 @@ Secondary Color (): #05676e;
 :root {
   --primary-color: #f0ffff;
   --secondary-color: #05676e;
+  --tertiary-color: #357b70;
   --dark-grey: #2b2b2b;
+  --text-color: #800080;
+  --font-weight: 700;
 }
 
 a {
@@ -21,8 +24,8 @@ a {
 h1 {
   font-family: 'PT Serif', serif;
   font-size: 30px;
-  font-weight: 700;
-  color: blueviolet;
+  font-weight: var(--font-weight);
+  color: var(--text-color);
 }
 
 body {
@@ -30,31 +33,31 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
-  background-color: #f0ffff;
+  background-color: var(--primary-color);
 }
 
 h1 {
   font-size: 30px;
-  font-weight: 700;
+  font-weight: var(--font-weight);
 }
 
 h2 {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: var(--font-weight);
 }
 
 h3 {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: var(--font-weight);
 }
 
 a {
-  color: #357b70;
+  color: var(--tertiary-color);
 }
 
 a:visited {
   /* visited link */
-  color: #05676e;
+  color: var(--secondary-color);
 }
 
 a:hover,
@@ -75,17 +78,13 @@ a {
 
 a {
   background:
-    linear-gradient(
-      to right,
+    linear-gradient(to right,
       rgba(100, 200, 200, 1),
-      rgba(100, 200, 200, 1)
-    ),
-    linear-gradient(
-      to right,
+      rgba(100, 200, 200, 1)),
+    linear-gradient(to right,
       rgba(255, 0, 0, 1),
       rgba(255, 0, 180, 1),
-      rgba(0, 100, 200, 1)
-    );
+      rgba(0, 100, 200, 1));
   background-size: 100% 3px, 0 3px;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
@@ -119,7 +118,7 @@ button {
 
 button:visited {
   /* visited link */
-  color: #05676e;
+  color: var(--secondary-color);
 }
 
 button:hover,
@@ -144,7 +143,7 @@ button:active {
 input[type=button],
 input[type=submit],
 input[type=reset] {
-  background-color: #05676e;
+  background-color: var(--secondary-color);
   border: none;
   color: white;
   padding: 16px 32px;
@@ -327,10 +326,6 @@ table#table2 {
   width: 200px;
 }
 
-h1 {
-  color: purple;
-}
-
 .button,
 button {
   /* overwrites browser defaults and resets the border */
@@ -341,7 +336,7 @@ button {
   font-family: inherit;
 
   /* styles the button */
-  background-color: #357b70;
+  background-color: var(--tertiary-color);
   color: white;
   text-decoration: none;
   padding: 10px;

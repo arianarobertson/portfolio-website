@@ -232,10 +232,6 @@ input[type=reset] {
   text-align: center;
 }
 
-.header-work {
-  text-align: center;
-}
-
 .table {
   margin-left: auto;
   margin-right: auto;
@@ -281,36 +277,6 @@ input[type=reset] {
   /* no need to specify the rows as shown below */
   grid-template-rows: 1fr 1fr;
   grid-gap: 20px;
-}
-
-.grid-item-1 {
-  grid-column-start: 1;
-  grid-row-start: 1;
-}
-
-.grid-item-2 {
-  grid-column-start: 1;
-  grid-row-start: 1;
-}
-
-.grid-item-3 {
-  grid-column-start: 1;
-  grid-row-start: 1;
-}
-
-.grid-item-4 {
-  grid-column-start: 1;
-  grid-row-start: 2;
-}
-
-.grid-item-5 {
-  grid-column-start: 1;
-  grid-row-start: 2;
-}
-
-.grid-item-6 {
-  grid-column-start: 1;
-  grid-row-start: 2;
 }
 
 .grid__item:last-child {

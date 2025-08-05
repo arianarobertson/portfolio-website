@@ -13,7 +13,7 @@ Primary Color ():  #F0FFFF;
 Secondary Color (): #05676e;
  */
 
-a {
+ a {
   color: #f0ffff;
 }
 
@@ -47,6 +47,17 @@ h2 {
 h3 {
   font-size: 18px;
   font-weight: 700;
+}
+
+.project-img {
+  /* UPDATED: larger images */
+  max-width: 90%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 12px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 a {
@@ -216,7 +227,7 @@ input[type=reset] {
 
 .profile__portrait {
   float: left;
-  width: 250px;
+  /* width: 250px; */
   margin-right: 40px;
   border-radius: 50%;
 }
@@ -279,9 +290,50 @@ input[type=reset] {
 }
 
 /* start grid fallback */
+
+/* UPDATED: full width grid with 3 equal columns */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  margin: 0 20px;
+  max-width: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+/* UPDATED: grid items prettier, rounded squares, black border */
 .grid__item {
-  display: inline-block;
-  width: 33%;
+  background-color: #fff;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 30px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease;
+  min-height: 320px;
+  width: 100%;
+}
+
+/* Hover effect for cards */
+.grid__item:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* The image styling moved here for consistency */
+.grid__item img.project-img {
+  max-width: 90%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 12px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main {
@@ -308,68 +360,15 @@ input[type=reset] {
     display: grid;
     display: -ms-grid;
 
-    /* grid-template-columns: 300px 300px 300px; fractions are better than pixels - they are responsive */
-    -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
-    margin: 0;
+    /* fallback columns removed to avoid conflict */
   }
 
   .grid__item {
-    background-color: lightgray;
-    width: auto;
-    min-height: auto;
-    margin: 0;
-  }
-
-  .grid__item:last-child {
-    -ms-grid-column: 3;
-    grid-column: 3 / 3;
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 2;
-    grid-row: 1 / 3;
+    background-color: #fff;
+    width: 100%;
+    min-height: 320px;
   }
 }
-
-.grid {
-  display: grid;
-  display: -ms-grid;
-}
-
-.grid__item {
-  background-color: lightgray;
-}
-
-.grid {
-  display: grid;
-  display: -ms-grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-columns: 1fr 1fr 1fr;
-
-  /* no need to specify the rows as shown below */
-  grid-template-rows: 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr;
-  grid-gap: 20px;
-}
-
-.grid__item:last-child {
-  -ms-grid-column: 3;
-  grid-column: 3 / 3;
-  -ms-grid-row: 1;
-  grid-row: 1 / 1;
-}
-
-/* .grid__item:last-child {
-  grid-column: 3 / 3;
-  grid-row: 1 / 3;
-}
-
-grid-column-start: 3;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 3;
-shortened version of above
-*/
 
 .main {
   max-width: 700px;
@@ -566,31 +565,43 @@ button:focus,
   animation: 34s cloud-move-reverse infinite alternate linear;
 }
 
+/* RESPONSIVE BREAKPOINTS */
+
+/* Small devices (phones) */
 @media all and (max-width: 500px) {
   .grid {
-    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
-  }
-}
-
-@media all and (min-width: 500px) and (max-width: 750px) {
-  .grid {
-    -ms-grid-columns: 1fr 20px 1fr;
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media all and (max-width: 750px) {
-  .grid {
-    grid-gap: 10px;
+    margin: 0 10px;
+    grid-gap: 15px;
   }
 
-  .grid__item:last-child {
-    grid-column: auto / auto;
-    grid-row: auto / auto;
+  .grid__item {
+    min-height: auto;
+    padding: 20px;
   }
 
   h1 {
     font-size: 22px;
   }
 }
+
+/* Medium devices (tablets) */
+@media all and (min-width: 501px) and (max-width: 750px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 15px;
+    grid-gap: 18px;
+  }
+
+  .grid__item {
+    min-height: 320px;
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+}
+
+/* Larger devices already covered by default grid 3 columns */
+
